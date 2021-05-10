@@ -1,48 +1,23 @@
 #include <stdio.h>
 
+void printArray(int* arr, int size)
+{
+    int i;
+
+    for (i=0; i<4; i++)
+    {
+        printf("\n%d\t %p\t %d",i,(arr+i),*(arr+i));
+    }
+}
+
 int main()
 {
-    int n,matrix[100][100],i,j,sum=0;
+   int *arr;
+   int size[4] = {3,8,5,7};
+   arr = size;
 
-    printf("Enter an odd number as \'n\' : ");
-    scanf("%d",&n);
-    for(;;)
-    {
-        if(n%2==0)
-        {
-            printf("\nYou have enter an even number.");
-            printf("\nPlease enter an odd number as \'n\' : ");
-            scanf("%d",&n);
+   printf("\nIndex\t Address\t Value");
+   printArray(arr,size);
 
-        }
-        else
-        {
-            break;
-        }
-    }
-
-    printf("\nEnter your element randomly : \n");
-    for(i=0; i<n; i++)
-    {
-        for(j=0; j<n; j++)
-        {
-            scanf("%d",&matrix[i][j]);
-        }
-    }
-
-    for(i=0; i<n; i++)
-    {
-        for(j=0; j<n; j++)
-        {
-            if(i%2!=0 || j%2!=0)
-            {
-                sum += matrix[i][j];
-            }
-        }
-    }
-
-
-    printf("\n%d",sum);
-
-    return 0;
+   return 0;
 }
