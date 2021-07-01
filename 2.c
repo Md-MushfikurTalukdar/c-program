@@ -1,38 +1,23 @@
 #include <stdio.h>
 
- int get_num(int n)
- {
-     int i,num,sum=0;
+void printArray(int* arr, int size)
+{
+    int i;
 
-     for(i=0; i<n; i++)
-     {
-        scanf("%d",&num);
-        sum += num;
-     }
-
-     return sum;
- }
-
+    for (i=0; i<4; i++)
+    {
+        printf("\n%d\t %p\t %d",i,(arr+i),*(arr+i));
+    }
+}
 
 int main()
 {
-    int n;
+   int *arr;
+   int size[4] = {3,8,5,7};
+   arr = size;
 
-    printf("Enter total number you want to take : ");
-    scanf("%d",&n);
-    printf("\nEnter your elements randomly : ");
+   printf("\nIndex\t Address\t Value");
+   printArray(arr,size);
 
-    int result;
-    result = get_num(n);
-    if(result%9==0)
-    {
-        printf("\nDivisible by 9.");
-    }
-    else
-    {
-        printf("\nNot divisible by 9.");
-    }
-
-
-    return 0;
+   return 0;
 }
